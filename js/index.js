@@ -1,10 +1,17 @@
 let jokeItem = document.querySelector('.jokeItem');
+let jokeDelete = document.querySelector('.deleteItem')
 
 let touchCordinateStart;
 let touchCordinateMove;
 let touchCordinateEnd;
 
 let deleteButtonWidth = (window.screen.width * 0.4);
+
+document.querySelector('.deleteItem').addEventListener('click', () => {
+    jokeItem.remove();
+    jokeDelete.remove();
+})
+
 
 jokeItem.addEventListener('touchstart', (event) => {
     touchCordinateStart = event.touches[0].clientX;
@@ -23,6 +30,7 @@ jokeItem.addEventListener('touchmove', (event) => {
 });
 
 
+// Automatically move back and forth
 jokeItem.addEventListener('touchend', (event) => {
     touchCordinateEnd = Math.floor(event.changedTouches[0].clientX);
     if(touchCordinateEnd < touchCordinateStart - deleteButtonWidth / 2) {
@@ -30,5 +38,4 @@ jokeItem.addEventListener('touchend', (event) => {
     } else {
         jokeItem.style.transform = `translateX(${event.target.offsetLeft})`
     }
-    
-})
+});
