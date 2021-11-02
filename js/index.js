@@ -1,5 +1,7 @@
 let jokeItem = document.querySelector('.jokeItem');
 let jokeDelete = document.querySelector('.deleteItem')
+let swipeContainer = document.querySelector('.Swipe-Container')
+
 
 let touchCordinateStart;
 let touchCordinateMove;
@@ -8,8 +10,10 @@ let touchCordinateEnd;
 let deleteButtonWidth = (window.screen.width * 0.4);
 
 document.querySelector('.deleteItem').addEventListener('click', () => {
-    jokeItem.remove();
-    jokeDelete.remove();
+    swipeContainer.classList.add("animate__fadeOutLeft");
+    setTimeout(() => {
+        swipeContainer.remove();
+    }, 1100);
 })
 
 
