@@ -9,14 +9,22 @@ border: solid 1px rgba(189, 188, 188, 0.486);
 */
 
 .Swipe-Container {
+    height: 75px;
+    
     display: grid;
     grid-template-columns: 1fr 40%;
     grid-auto-rows: 75px;
+    
+    transition: height 0.5s, transform 1s ease;
     
     /*
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
     border: solid 1px rgba(189, 188, 188, 0.486);
     */
+}
+
+.ItemCollapse {
+    height: 0px;
 }
 
 .Swipe-Container > * {
@@ -60,4 +68,14 @@ place-self: center;
     /*
     padding-left: 10%;
     */
+}
+
+.box2 {
+    height: 75px;
+    background-color: rgb(105, 236, 44);
+}
+
+.box3 {
+    height: 75px;
+    background-color: rgb(36, 199, 118);
 }
