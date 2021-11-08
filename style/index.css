@@ -1,5 +1,6 @@
 * {
     margin: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*
@@ -8,6 +9,21 @@ border-radius: 5px;
 border: solid 1px rgba(189, 188, 188, 0.486);
 */
 
+nav {
+    box-sizing: border-box;
+    height: 60px;
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+    color: white;
+    background-color: rgb(236, 82, 82);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .Swipe-Container {
     height: 75px;
     
@@ -15,12 +31,7 @@ border: solid 1px rgba(189, 188, 188, 0.486);
     grid-template-columns: 1fr 40%;
     grid-auto-rows: 75px;
     
-    transition: height 0.5s, transform 1s ease;
-    
-    /*
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-    border: solid 1px rgba(189, 188, 188, 0.486);
-    */
+    transition: height 0.5s ease;
 }
 
 .ItemCollapse {
@@ -32,24 +43,19 @@ border: solid 1px rgba(189, 188, 188, 0.486);
     align-items: center;
 }
 
-.backEnd {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 1 / 2;
 
-    justify-content: center;
-}
-
-
-.jokeItem {
+.swipeItem {
     background-color: bisque;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1 / 2;
-
+    
     transition: transform 0.3s  ease;
     
+    /*box-shadow: 1px 3px 5px rgba(0,0,0,0.1);*/
+    border: solid 1px rgba(189, 188, 188, 0.486);
     box-sizing: border-box;
+    
     padding: 10px;
 }
 

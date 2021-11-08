@@ -26,9 +26,9 @@ document.querySelector("main").addEventListener('touchstart', (e) => {
             name:parentElement.querySelector(".swipeItem").textContent,
         };
 
-        trash.push(userObject);
+        trash = trash.filter((item) => userObject.id != item.id);
         localStorage.setItem('deletedItems', JSON.stringify(trash));
-        
+
         parentElement.classList.add("animate__fadeOutLeft");
         // tilføjer ItemCollapse classen og collapser derfor elementer
         setTimeout(() => {
@@ -64,62 +64,3 @@ document.querySelector("main").addEventListener('touchstart', (e) => {
         }
     });
 });
-
-/*
-document.querySelector("main").addEventListener('touchstart', (e) => {
-
-let target = e.target.parentNode;
-
-let jokeItem = target.querySelector('.jokeItem');
-let jokeDelete = target.querySelector('.deleteItem')
-let swipeContainer = target.querySelector('.Swipe-Container')
-
-let touchCordinateStart;
-let touchCordinateMove;
-let touchCordinateEnd;
-let touchElement;
-
-let deleteButtonWidth = (window.screen.width * 0.4);
-
-    touchElement = e.target.parentElement.id
-    touchCordinateStart = e.touches[0].clientX;
-
-    jokeDelete.addEventListener('click', () => {
-        swipeContainer.classList.add("animate__fadeOutLeft");
-        // tilføjer ItemCollapse classen og collapser derfor elementer
-        setTimeout(() => {
-            swipeContainer.classList.add("ItemCollapse");
-        }, 1100);
-        // sletter elementet efter 2000 millisekunder
-        setTimeout(() => {
-            swipeContainer.remove();
-        }, 1600);
-    })
-        
-    
-    
-    jokeItem.addEventListener('touchstart', (event) => {
-        touchCordinateStart = event.touches[0].clientX;
-    });
-
-    jokeItem.addEventListener('touchmove', (event) => {
-        touchCordinateMove = Math.floor(event.touches[0].clientX);
-        if (touchCordinateMove < touchCordinateStart && 
-            touchCordinateMove > touchCordinateStart - deleteButtonWidth) {
-                
-                jokeItem.style.transform = `translateX(${
-                    touchCordinateMove - touchCordinateStart}px)`;
-                }
-    });
-
-    // Automatically move back and forth
-    jokeItem.addEventListener('touchend', (event) => {
-        touchCordinateEnd = Math.floor(event.changedTouches[0].clientX);
-        if(touchCordinateEnd < touchCordinateStart - deleteButtonWidth / 2) {
-            jokeItem.style.transform = `translateX(-${deleteButtonWidth}px)`
-        } else {
-            jokeItem.style.transform = `translateX(${event.target.offsetLeft})`
-        }
-    });
-});
-*/
